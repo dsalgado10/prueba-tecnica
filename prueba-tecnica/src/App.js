@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 class App extends React.Component {
@@ -25,12 +24,24 @@ class App extends React.Component {
   }
 
   render () {
+    const {isLoaded, pokemones} = this.state;
+    if (!isLoaded) {
+      <div>
+        Cargando..
+      </div>
+    } 
     return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
+          <ul>
+            {pokemones.map(pokemon =>(
+              <li key={pokemon.count}>
+                Numero: {pokemon.count} | Nombre: {pokemon.name} 
+              </li>
+            ))}
+          </ul>
           <p>
-            Listado de Pokemons
+            Listado de Pokemon
           </p>
         </header>
       </div>
