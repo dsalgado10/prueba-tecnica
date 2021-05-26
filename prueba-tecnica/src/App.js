@@ -15,7 +15,7 @@ class App extends React.Component {
       .then(res => res.json ())
       .then(json => {
         this.setState({
-          pokemones:json,
+          pokemones: json,
           isLoaded: true,
         })
       }).catch((err) => {
@@ -25,6 +25,7 @@ class App extends React.Component {
 
   render () {
     const {isLoaded, pokemones} = this.state;
+    console.log("Pokemones: ", pokemones);
     if (!isLoaded) {
       <div>
         Cargando..
@@ -33,13 +34,13 @@ class App extends React.Component {
     return (
       <div className="App">
         <header className="App-header">
-          <ul>
-            {pokemones.map(pokemon =>(
+          {/*<ul>
+            {pokemones.filter(pokemon =>(
               <li key={pokemon.count}>
                 Numero: {pokemon.count} | Nombre: {pokemon.name} 
               </li>
             ))}
-          </ul>
+          </ul>*/}
           <p>
             Listado de Pokemon
           </p>
